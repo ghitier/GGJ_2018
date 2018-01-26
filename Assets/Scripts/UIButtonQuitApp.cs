@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -20,10 +19,5 @@ public class UIButtonQuitApp : MonoBehaviour
 	{
         Application.Quit();
 	}
-
-    public void OnBackToMenu()
-    {
-        SceneManager.LoadScene("S_Menu");
-    }
 }
 
