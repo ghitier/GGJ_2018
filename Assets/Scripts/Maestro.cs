@@ -24,7 +24,11 @@ public class Maestro : Singleton<Maestro> {
 
     private void Update()
     {
-        transform.position = CameraManager.Instance.CameraToTheatrePosition();
+        Vector3 newPos;
+        if(CameraManager.Instance.CameraToTheatreRaycast(out newPos))
+        {
+            transform.position = newPos;
+        }
     }
 
     public void PlaySound(AudioClip _clip)

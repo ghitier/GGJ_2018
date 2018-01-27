@@ -62,9 +62,16 @@ public class CameraManager : Singleton<CameraManager> {
             float mouseDelta_Y = Input.GetAxis("Mouse Y") + Input.GetAxis("Vertical");
 
             Vector3 newCamPos = transform.position;
+            Vector3 oldPos = newCamPos;
             newCamPos.x += mouseDelta_X * _zoomLevel * SCROLL_SPEED * Time.deltaTime;
             newCamPos.y += mouseDelta_Y * _zoomLevel * SCROLL_SPEED * Time.deltaTime;
             transform.position = newCamPos;
+
+            Vector3 hitPos;
+            if(!CameraToTheatreRaycast(out hitPos))
+            {
+                transform.position = oldPos;
+            }
 
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
@@ -118,7 +125,7 @@ public class CameraManager : Singleton<CameraManager> {
         StartCoroutine(Zoom_Routine(zoomTarget));
     }
 
-    public Vector3 CameraToTheatrePosition()
+    public bool CameraToTheatreRaycast(out Vector3 hitPoint)
     {
         Ray charles = new Ray(transform.position, Vector3.forward);
         Debug.DrawRay(charles.origin, charles.direction * 1000, Color.blue, 0.1f);
@@ -129,9 +136,14 @@ public class CameraManager : Singleton<CameraManager> {
 
         if (Physics.Raycast(charles, out hit, 1000.0f, layerCollide))
         {
-            return hit.point;
+            hitPoint = hit.point;
+            return true;
         }
-        else return Vector3.zero;
+        else
+        {
+            hitPoint = Vector3.zero;
+            return false;
+        }
     }
 
     private GameObject TargetedCharacter()
