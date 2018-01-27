@@ -20,6 +20,7 @@ public class CameraManager : Singleton<CameraManager> {
     public AudioClip zoomSound;
     public AudioClip panicSound;
     public GameObject lastHitObject = null;
+    public GameObject assassin = null;
 
     private float ZoomLevel
     {
@@ -38,7 +39,7 @@ public class CameraManager : Singleton<CameraManager> {
 
 	private void Awake()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
 
         _oriPos = transform.position;
 
@@ -49,7 +50,10 @@ public class CameraManager : Singleton<CameraManager> {
     private void Start()
     {
         transform.position = _oriPos;
+
+        SetUpGame();
     }
+
 
     private void Update () {
         if(controlled)
@@ -69,16 +73,43 @@ public class CameraManager : Singleton<CameraManager> {
 
             if (Input.GetMouseButtonDown(0))
             {
-                Maestro.Instance.PlayClipOnce(shotSound);
+                Maestro.Instance.PlayClipOnce(shotSound, true);
                 Maestro.Instance.PlaySound(panicSound);
                 StartCoroutine(ShotMovement_Routine());
-                Cursor.visible = true;
-                controlled = false;
+                EndGame();
             }
 
             GameObject currentHitObject = TargetedCharacter();
             lastHitObject = currentHitObject ?? lastHitObject;
         }        
+    }
+
+    private void SetUpGame()
+    {
+        Cursor.visible = true;
+        controlled = false;
+
+        FadeScreen.Instance.FadeIn("Trouvez l'assassin avant qu'il ne tue notre estimé président !", "Ok !",
+        delegate 
+        {
+            Cursor.visible = false;
+            controlled = true;
+            FadeScreen.Instance.Hide();
+        });
+    }
+
+    private void EndGame()
+    {
+        Cursor.visible = true;
+        controlled = false;
+
+        if(TargetedCharacter() == assassin)
+        {
+            FadeScreen.Instance.FadeOut("Vous avez prévenu l'assassinat de notre estimé président !", "Youpi !", delegate
+            {
+            });
+        }
+
     }
     
     private void SetNewZoom(float zoomTarget)
