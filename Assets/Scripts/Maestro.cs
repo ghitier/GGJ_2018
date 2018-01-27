@@ -7,11 +7,12 @@ public class Maestro : Singleton<Maestro> {
     public AudioClip[] allClips = new AudioClip[0];
     
     public AudioSource oneShotSource;
-    
 
+    private AudioClip[] _mumbles;
+
+    private int _index = 0;
     public float crossfadeTimer = 1f;
     public AudioSource[] crossfadeSources = new AudioSource[0];
-    private int _index = 0;
 
     private AudioSource NextAvailableSource
     {
@@ -20,6 +21,27 @@ public class Maestro : Singleton<Maestro> {
             int nextIndex = (_index + 1) % crossfadeSources.Length;
             return crossfadeSources[nextIndex];
         }
+    }
+
+    public bool IsCrossfadePlaying
+    {
+        get
+        {
+            foreach(var s in crossfadeSources)
+            {
+                if (s.isPlaying)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    private void Awake()
+    {
+        _mumbles = Resources.LoadAll<AudioClip>("SFX/mumbles");
     }
 
     private void Update()
@@ -31,10 +53,11 @@ public class Maestro : Singleton<Maestro> {
         }
     }
 
-    public void PlaySound(AudioClip _clip)
+    public void PlaySound(AudioClip _clip, bool loop = true)
     {
         NextAvailableSource.clip = _clip;
-        StartCoroutine(Crossfade_Routine());
+        NextAvailableSource.loop = loop;
+        StartCoroutine(Crossfade_Routine(loop));
         BumpIndex();
     }
 
@@ -51,7 +74,26 @@ public class Maestro : Singleton<Maestro> {
         _index = (_index + 1) % crossfadeSources.Length;
     }
 
-    private IEnumerator Crossfade_Routine()
+    private AudioClip GetRandomMumble()
+    {
+        return _mumbles[UnityEngine.Random.Range(0, _mumbles.Length)];
+    }
+
+    public AudioClip GetRandomMumble(string emotion)
+    {
+        List<AudioClip> _selectees = new List<AudioClip>();
+        foreach(var mum in _mumbles)
+        {
+            if(mum.name.Contains(emotion))
+            {
+                _selectees.Add(mum);
+            }
+        }
+
+        return _selectees[UnityEngine.Random.Range(0, _selectees.Count)];
+    }
+
+    private IEnumerator Crossfade_Routine(bool loop = true)
     {
         float start = Time.time;
         AudioSource currentSource = crossfadeSources[_index];
@@ -80,6 +122,21 @@ public class Maestro : Singleton<Maestro> {
         }
 
         currentSource.Stop();
+        
+        if(!loop)
+        {
+            yield return new WaitUntil(() => (nextSource.time / nextSource.clip.length) > 0.9f);
+
+            float startVolume = nextSource.volume;
+            start = Time.time;
+            float remaining = nextSource.time - nextSource.clip.length;
+            
+            while (nextSource.isPlaying)
+            {
+                float duration = start - Time.time;
+                nextSource.volume = Mathf.Lerp(startVolume, 0, duration / remaining);
+            }
+        }        
     }
 
     public void PlayRandomSound()
