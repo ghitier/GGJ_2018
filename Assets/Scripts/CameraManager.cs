@@ -17,6 +17,9 @@ public class CameraManager : Singleton<CameraManager> {
 
     public bool controlled = true;
     public AudioClip shotSound;
+    public AudioClip zoomSound;
+    public AudioClip panicSound;
+    public GameObject lastHitObject = null;
 
     private float ZoomLevel
     {
@@ -26,7 +29,9 @@ public class CameraManager : Singleton<CameraManager> {
         }
         set
         {
-            _zoomLevel = Mathf.Clamp(value, MIN_ZOOM, 1f);
+            float newZoomLevel = Mathf.Clamp(value, MIN_ZOOM, 1f);
+
+            _zoomLevel = newZoomLevel;
             _camera.orthographicSize = _oriFOV * _zoomLevel;
         }
     }
@@ -40,7 +45,12 @@ public class CameraManager : Singleton<CameraManager> {
         _camera = GetComponent<Camera>();
         _oriFOV = _camera.orthographicSize;
     }
-    
+
+    private void Start()
+    {
+        transform.position = _oriPos;
+    }
+
     private void Update () {
         if(controlled)
         {
@@ -60,10 +70,14 @@ public class CameraManager : Singleton<CameraManager> {
             if (Input.GetMouseButtonDown(0))
             {
                 Maestro.Instance.PlayClipOnce(shotSound);
+                Maestro.Instance.PlaySound(panicSound);
                 StartCoroutine(ShotMovement_Routine());
                 Cursor.visible = true;
                 controlled = false;
             }
+
+            GameObject currentHitObject = TargetedCharacter();
+            lastHitObject = currentHitObject ?? lastHitObject;
         }        
     }
     
@@ -73,12 +87,48 @@ public class CameraManager : Singleton<CameraManager> {
         StartCoroutine(Zoom_Routine(zoomTarget));
     }
 
+    public Vector3 CameraToTheatrePosition()
+    {
+        Ray charles = new Ray(transform.position, Vector3.forward);
+        Debug.DrawRay(charles.origin, charles.direction * 1000, Color.blue, 0.1f);
+
+        int layerCollide = 1 << LayerMask.NameToLayer("Background");
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(charles, out hit, 1000.0f, layerCollide))
+        {
+            return hit.point;
+        }
+        else return Vector3.zero;
+    }
+
+    private GameObject TargetedCharacter()
+    {
+        Ray charles = new Ray(transform.position, Vector3.forward);
+
+        int layerCollide = 1 << LayerMask.NameToLayer("NPC");
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(charles, out hit, 1000.0f, layerCollide))
+        {
+            return hit.collider.gameObject;
+        }
+        else return null;
+    }
+
     private IEnumerator Zoom_Routine(float zoomTarget)
     {
         zoomTarget = Mathf.Clamp(zoomTarget, MIN_ZOOM, 1f);
 
         float start = Time.time;
         float startZoom = ZoomLevel;
+
+        if(zoomTarget != startZoom)
+        {
+            Maestro.Instance.PlayClipOnce(zoomSound);
+        }
 
         while(ZoomLevel != zoomTarget)
         {

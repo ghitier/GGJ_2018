@@ -7,6 +7,7 @@ public class Maestro : Singleton<Maestro> {
     public AudioClip[] allClips = new AudioClip[0];
     
     public AudioSource oneShotSource;
+    
 
     public float crossfadeTimer = 1f;
     public AudioSource[] crossfadeSources = new AudioSource[0];
@@ -21,8 +22,9 @@ public class Maestro : Singleton<Maestro> {
         }
     }
 
-    private void Awake()
+    private void Update()
     {
+        transform.position = CameraManager.Instance.CameraToTheatrePosition();
     }
 
     public void PlaySound(AudioClip _clip)
@@ -34,7 +36,10 @@ public class Maestro : Singleton<Maestro> {
 
     public void PlayClipOnce(AudioClip _clip)
     {
-        oneShotSource.PlayOneShot(_clip);
+        if(!oneShotSource.isPlaying)
+        {
+            oneShotSource.PlayOneShot(_clip);
+        }
     }
 
     private void BumpIndex()
