@@ -13,7 +13,8 @@ public class CameraManager : Singleton<CameraManager> {
     private Vector3 _oriPos;
     private Camera _camera;
     private float _oriFOV;
-    private float _zoomLevel = 1f;
+
+    public static float _zoomLevel = 1f;
 
     public bool controlled = true;
     public AudioClip shotSound;

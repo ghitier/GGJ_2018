@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 07a9e026ea6e79e4799abc28afc3b454
-timeCreated: 1517075021
+guid: ae96dbf530f3de44aaecb0ef86130f9a
+timeCreated: 1517075011
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Visages-formes_0000s_Bouche-2_0
-    21300002: Visages-formes_0000s_Bouche-2_1
-    21300004: Visages-formes_0000s_Bouche-2_2
-    21300006: Visages-formes_0000s_Bouche-2_3
-    21300008: Visages-formes_0000s_Bouche-2_4
-    21300010: Visages-formes_0000s_Bouche-2_5
-    21300012: Visages-formes_0000s_Bouche-2_6
-    21300014: Visages-formes_0000s_Bouche-2_7
-    21300016: Visages-formes_0000s_Bouche-2_8
-    21300018: Visages-formes_0000s_Bouche-2_9
+    21300000: Visages-formes_0000s bouche 1_0
+    21300002: Visages-formes_0000s bouche 1_1
+    21300004: Visages-formes_0000s bouche 1_2
+    21300006: Visages-formes_0000s bouche 1_3
+    21300008: Visages-formes_0000s bouche 1_4
+    21300010: Visages-formes_0000s bouche 1_5
+    21300012: Visages-formes_0000s bouche 1_6
+    21300014: Visages-formes_0000s bouche 1_7
+    21300016: Visages-formes_0000s bouche 1_8
+    21300018: Visages-formes_0000s bouche 1_9
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -120,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_0
+      name: Visages-formes_0000s bouche 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,7 +134,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_1
+      name: Visages-formes_0000s bouche 1_1
       rect:
         serializedVersion: 2
         x: 255
@@ -148,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_2
+      name: Visages-formes_0000s bouche 1_2
       rect:
         serializedVersion: 2
         x: 510
@@ -162,7 +162,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_3
+      name: Visages-formes_0000s bouche 1_3
       rect:
         serializedVersion: 2
         x: 765
@@ -176,7 +176,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_4
+      name: Visages-formes_0000s bouche 1_4
       rect:
         serializedVersion: 2
         x: 1020
@@ -190,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_5
+      name: Visages-formes_0000s bouche 1_5
       rect:
         serializedVersion: 2
         x: 1275
@@ -204,7 +204,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_6
+      name: Visages-formes_0000s bouche 1_6
       rect:
         serializedVersion: 2
         x: 1530
@@ -218,7 +218,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_7
+      name: Visages-formes_0000s bouche 1_7
       rect:
         serializedVersion: 2
         x: 1785
@@ -232,7 +232,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_8
+      name: Visages-formes_0000s bouche 1_8
       rect:
         serializedVersion: 2
         x: 2040
@@ -246,7 +246,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Visages-formes_0000s_Bouche-2_9
+      name: Visages-formes_0000s bouche 1_9
       rect:
         serializedVersion: 2
         x: 2295

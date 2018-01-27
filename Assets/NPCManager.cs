@@ -9,9 +9,12 @@ public enum PartType
     Eyes,
     Hair,
     Nose,
-    Mouth,
+    MouthNormal,
+    MouthSad,
+    MouthHappy,
     Body,
-    Cloth
+    Cloth,
+    Beard
 }
 
 public enum Gender
@@ -35,15 +38,25 @@ public class NPCManager : Singleton<NPCManager> {
         maleSpritesDico.Add(PartType.Hair, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Hair")));
         maleSpritesDico.Add(PartType.Nose, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Noses")));
         maleSpritesDico.Add(PartType.Head, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Head")));
-        maleSpritesDico.Add(PartType.Mouth, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Mouth")));
+
+        maleSpritesDico.Add(PartType.MouthNormal, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Mouth")));
+        maleSpritesDico.Add(PartType.MouthSad, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/MouthSad")));
+        maleSpritesDico.Add(PartType.MouthHappy, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/MouthHappy")));
+
+
         maleSpritesDico.Add(PartType.Body, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Body")));
         maleSpritesDico.Add(PartType.Cloth, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Cloth")));
+        
 
         femaleSpritesDico.Add(PartType.Eyes, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Eyes")));
         femaleSpritesDico.Add(PartType.Hair, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Hair")));
         femaleSpritesDico.Add(PartType.Nose, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Noses")));
         femaleSpritesDico.Add(PartType.Head, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Head")));
-        femaleSpritesDico.Add(PartType.Mouth, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Mouth")));
+
+        femaleSpritesDico.Add(PartType.MouthNormal, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Mouth")));
+        femaleSpritesDico.Add(PartType.MouthSad, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/MouthSad")));
+        femaleSpritesDico.Add(PartType.MouthHappy, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/MouthHappy")));
+
         femaleSpritesDico.Add(PartType.Body, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Body")));
         femaleSpritesDico.Add(PartType.Cloth, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Cloth")));
     }

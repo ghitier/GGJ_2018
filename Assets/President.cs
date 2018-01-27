@@ -10,6 +10,9 @@ public class President : Singleton<President> {
     private AudioClip[] _speeches = new AudioClip[0];
     private AudioSource _source;
 
+    public delegate void SpeechEvent(string speechSentence);
+    public static event SpeechEvent OnSentenceSpoken;
+
     private void Awake()
     {
         _source = GetComponent<AudioSource>();
@@ -35,18 +38,25 @@ public class President : Singleton<President> {
                 done.Clear();
             }            
 
-            if(Random.value > 0.5f && _source.isPlaying)
+            if(_source.isPlaying)
             {
                 yield return new WaitUntil(() => (_source.time / _source.clip.length) > 0.7f);
-                
-                Maestro.Instance.PlaySound(applauseSound, false);
-                
-                yield return new WaitForSeconds(applauseSound.length + 1);
-            }
-            else
-            {
-                yield return new WaitUntil(() => !_source.isPlaying);
-                yield return new WaitForSeconds(2.0f);
+
+                if(OnSentenceSpoken != null)
+                {
+                    OnSentenceSpoken(_source.clip.name);
+                }
+
+                if(Random.value > 0.5f)
+                {
+                    Maestro.Instance.PlaySound(applauseSound, false);
+                    yield return new WaitForSeconds(applauseSound.length + 1);
+                }
+                else
+                {
+                    yield return new WaitUntil(() => !_source.isPlaying);
+                    yield return new WaitForSeconds(2.0f);
+                }
             }
 
             yield return new WaitUntil(() => !_source.isPlaying);

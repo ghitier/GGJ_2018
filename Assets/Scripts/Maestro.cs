@@ -90,6 +90,8 @@ public class Maestro : Singleton<Maestro> {
             GameObject newMumble = Instantiate(mumblePrefab) as GameObject;
             newMumble.transform.SetParent(c.transform, false);
             newMumble.transform.localPosition = Vector3.zero;
+
+            c.SetMumble(newMumble.GetComponent<NPCMumble>());
         }
     }
 
