@@ -8,6 +8,8 @@ public class Maestro : Singleton<Maestro> {
     
     public AudioSource oneShotSource;
 
+    public GameObject mumblePrefab;
+
     private AudioClip[] _mumbles;
 
     private int _index = 0;
@@ -44,6 +46,11 @@ public class Maestro : Singleton<Maestro> {
         _mumbles = Resources.LoadAll<AudioClip>("SFX/mumbles");
     }
 
+    private void Start()
+    {
+        PopulateMumbles();
+    }
+
     private void Update()
     {
         Vector3 newPos;
@@ -73,8 +80,20 @@ public class Maestro : Singleton<Maestro> {
     {
         _index = (_index + 1) % crossfadeSources.Length;
     }
+    
+    private void PopulateMumbles()
+    {
+        CharacterRandomizer[] allCharacters = Object.FindObjectsOfType<CharacterRandomizer>();
 
-    private AudioClip GetRandomMumble()
+        foreach (var c in allCharacters)
+        {
+            GameObject newMumble = Instantiate(mumblePrefab) as GameObject;
+            newMumble.transform.SetParent(c.transform, false);
+            newMumble.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    public AudioClip GetRandomMumble()
     {
         return _mumbles[UnityEngine.Random.Range(0, _mumbles.Length)];
     }

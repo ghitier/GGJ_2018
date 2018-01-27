@@ -33,9 +33,7 @@ public class President : Singleton<President> {
                 done.Shuffle();
                 todo = done;
                 done.Clear();
-            }
-
-            
+            }            
 
             if(Random.value > 0.5f && _source.isPlaying)
             {
