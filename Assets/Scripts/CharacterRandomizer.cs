@@ -9,9 +9,14 @@ public class CharacterRandomizer : MonoBehaviour {
     private List<BodyPartRandomizer> _parts = new List<BodyPartRandomizer>();
 
     private BodyPartRandomizer mouth;
+    private Animator _animator;
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
+        
+
+
         if(randomize)
         {
             gender = (Random.value > 0.5f) ? Gender.Female : Gender.Male;

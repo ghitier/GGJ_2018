@@ -78,6 +78,9 @@ public class CameraManager : Singleton<CameraManager> {
                 SetNewZoom(ZoomLevel - Mathf.Clamp(Input.GetAxis("Mouse ScrollWheel") * 10, -1, 1) * ZOOM_STEP);
             }
 
+            GameObject currentHitObject = TargetedCharacter();
+            lastHitObject = currentHitObject ?? lastHitObject;
+
             if (Input.GetMouseButtonDown(0))
             {
                 Maestro.Instance.PlayClipOnce(shotSound, true);
@@ -86,8 +89,7 @@ public class CameraManager : Singleton<CameraManager> {
                 EndGame();
             }
 
-            GameObject currentHitObject = TargetedCharacter();
-            lastHitObject = currentHitObject ?? lastHitObject;
+            
         }        
     }
 
