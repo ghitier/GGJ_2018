@@ -95,36 +95,55 @@ public class CharacterRandomizer : MonoBehaviour {
 
     public void RandomizeParts()
     {
+        Transform t = GetComponent<Transform>();
+        int siblingIdx = t.GetSiblingIndex();
+
         Color skinColor = NPCManager.Instance.GetRandomSkinColor();
         Color hairColor = NPCManager.Instance.GetRandomHairColor();
 
+        int partIdx = 0;
+        int layerOrder = (t.parent.childCount - siblingIdx) * _parts.Count;
         foreach (var p in _parts)
         {
-            if(p.type != PartType.None)
+            SpriteRenderer renderer = p.GetSpriteRenderer();
+            if (p.type != PartType.None)
             {
-                SpriteRenderer renderer = p.GetSpriteRenderer();
                 renderer.sprite = NPCManager.Instance.GetRandomSprite(p.type, gender);
 
                 switch(p.type)
                 {
                     case PartType.Body:
+                        renderer.color = skinColor;
+                        renderer.sortingOrder = layerOrder;
+                        break;
                     case PartType.Head:
+                        renderer.color = skinColor;
+                        renderer.sortingOrder = layerOrder + 1;
+                        break;
                     case PartType.Nose:
                         renderer.color = skinColor;
+                        renderer.sortingOrder = layerOrder + 3;
                         break;
 
                     case PartType.Hair:
                         renderer.color = hairColor;
+                        renderer.sortingOrder = layerOrder + 4;
+                        break;
+
+                    case PartType.Eyes:
+                        renderer.sortingOrder = layerOrder + 5;
                         break;
 
                     case PartType.MouthNormal:
                         mouth = p;
+                        renderer.sortingOrder = layerOrder + 2;
                         break;
                 }
             }
             else
             {
                 p.GetSpriteRenderer().color = skinColor;
+                renderer.sortingOrder = layerOrder + 6 + partIdx++;
             }
         }
     }
