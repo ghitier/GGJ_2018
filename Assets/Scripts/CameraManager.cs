@@ -15,6 +15,9 @@ public class CameraManager : Singleton<CameraManager> {
     private float _oriFOV;
     private float _zoomLevel = 1f;
 
+    public bool controlled = true;
+    public AudioClip shotSound;
+
     private float ZoomLevel
     {
         get
@@ -30,6 +33,8 @@ public class CameraManager : Singleton<CameraManager> {
 
 	private void Awake()
     {
+        Cursor.visible = false;
+
         _oriPos = transform.position;
 
         _camera = GetComponent<Camera>();
@@ -37,20 +42,31 @@ public class CameraManager : Singleton<CameraManager> {
     }
     
     private void Update () {
-        float mouseDelta_X = Input.GetAxis("Mouse X") + Input.GetAxis("Horizontal");
-        float mouseDelta_Y = Input.GetAxis("Mouse Y") + Input.GetAxis("Vertical");
-
-        Vector3 newCamPos = transform.position;
-        newCamPos.x += mouseDelta_X * _zoomLevel * SCROLL_SPEED * Time.deltaTime;
-        newCamPos.y += mouseDelta_Y * _zoomLevel * SCROLL_SPEED * Time.deltaTime;
-        transform.position = newCamPos;
-
-        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        if(controlled)
         {
-            SetNewZoom(ZoomLevel - Mathf.Clamp(Input.GetAxis("Mouse ScrollWheel") * 10, -1, 1) * ZOOM_STEP);
-        }
-    }
+            float mouseDelta_X = Input.GetAxis("Mouse X") + Input.GetAxis("Horizontal");
+            float mouseDelta_Y = Input.GetAxis("Mouse Y") + Input.GetAxis("Vertical");
 
+            Vector3 newCamPos = transform.position;
+            newCamPos.x += mouseDelta_X * _zoomLevel * SCROLL_SPEED * Time.deltaTime;
+            newCamPos.y += mouseDelta_Y * _zoomLevel * SCROLL_SPEED * Time.deltaTime;
+            transform.position = newCamPos;
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                SetNewZoom(ZoomLevel - Mathf.Clamp(Input.GetAxis("Mouse ScrollWheel") * 10, -1, 1) * ZOOM_STEP);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Maestro.Instance.PlayClipOnce(shotSound);
+                StartCoroutine(ShotMovement_Routine());
+                Cursor.visible = true;
+                controlled = false;
+            }
+        }        
+    }
+    
     private void SetNewZoom(float zoomTarget)
     {
         StopAllCoroutines();
@@ -68,6 +84,31 @@ public class CameraManager : Singleton<CameraManager> {
         {
             float duration = Time.time - start;
             ZoomLevel = Mathfx.Hermite(ZoomLevel, zoomTarget, duration / ZOOM_SPEED);
+            yield return null;
+        }
+    }
+
+    private IEnumerator ShotMovement_Routine()
+    {
+        float shotDuration = 0.15f;
+
+        Vector3 oriPos = transform.position;
+        Vector3 targetPos = oriPos;
+        targetPos.y += 0.5f;
+
+        float start = Time.time;
+        while(Time.time - start < shotDuration / 2)
+        {
+            float duration = Time.time - start;
+            transform.position = Vector3.Lerp(oriPos, targetPos, duration / (shotDuration / 2));
+            yield return null;
+        }
+
+        start = Time.time;
+        while (Time.time - start < shotDuration / 2)
+        {
+            float duration = Time.time - start;
+            transform.position = Vector3.Lerp(targetPos, oriPos, duration / (shotDuration / 2));
             yield return null;
         }
     }
