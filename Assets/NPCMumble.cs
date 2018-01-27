@@ -5,6 +5,8 @@ using UnityEngine;
 public class NPCMumble : MonoBehaviour {
 
     private AudioSource _source;
+
+    private float _oriVolume;
     private float _oriRange;
 
     private string _currentEmotion = "neutral";
@@ -30,6 +32,7 @@ public class NPCMumble : MonoBehaviour {
     {
         _source = GetComponent<AudioSource>();
         _oriRange = _source.maxDistance;
+        _oriVolume = _source.volume;
     }
 
     private void Start()
@@ -40,12 +43,14 @@ public class NPCMumble : MonoBehaviour {
     private void LateUpdate()
     {
         _source.maxDistance = _oriRange * CameraManager._zoomLevel;
-
+        _source.volume = _oriVolume + 0.1f * (1 - CameraManager._zoomLevel);
 
     }
 
     private IEnumerator Mumble_Routine()
     {
+        yield return null;
+
         while(true)
         {
             if(_currentEmotion != "neutral")
@@ -54,7 +59,7 @@ public class NPCMumble : MonoBehaviour {
             }
             else
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 50f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 20f));
             }
             
             if (!_source.isPlaying || _source.clip == null)
