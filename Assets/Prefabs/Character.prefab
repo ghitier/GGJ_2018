@@ -231,8 +231,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748699534768980}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.524, y: -2.449, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.439, y: -1.802, z: 0}
   m_LocalScale: {x: 0.24223, y: 0.24223, z: 0.24223}
   m_Children:
   - {fileID: 4471584528719352}
@@ -435,6 +435,9 @@ MonoBehaviour:
   randomize: 1
   disapprovingThings: []
   approvingThings: []
+  skinColor: {r: 0, g: 0, b: 0, a: 0}
+  hairColor: {r: 0, g: 0, b: 0, a: 0}
+  clothColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114403555951409572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,15 +739,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 875a18c85fcf82a4d94e0db5c7a8623a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8681eb089df29404e8d4cd2ffa0097ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.3466663, y: 4.18}
+  m_Size: {x: 4.1800003, y: 4.176}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!212 &212677463528313830
 SpriteRenderer:
@@ -826,7 +829,7 @@ SpriteRenderer:
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2b15a496f023ef344b3652985dde8ff9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}

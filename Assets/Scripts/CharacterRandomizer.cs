@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterRandomizer : MonoBehaviour {
 
     private const int BAD_ANIM_COUNT = 1;
-    private const int HAPPY_ANIM_COUNT = 2;
+    private const int HAPPY_ANIM_COUNT = 3;
     private const int NEUTRAL_ANIM_COUNT = 2;
 
     public Gender gender;

@@ -101,6 +101,9 @@ public class CameraManager : Singleton<CameraManager> {
     {
         TimeManager.OnTimerEnd -= OnTimerEnd;
 
+        Cursor.visible = true;
+        controlled = false;
+
         Maestro.Instance.PlayClipOnce(akShotSound);
         Maestro.Instance.PlaySound(panicSound);
 
