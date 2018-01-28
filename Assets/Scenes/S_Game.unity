@@ -7123,7 +7123,7 @@ Prefab:
     - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
         type: 2}
       propertyPath: disapprovingThings.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4361097206167040, guid: b468678761c09354ba15323b7c254825, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7474,6 +7474,11 @@ Prefab:
         type: 2}
       propertyPath: clothColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: disapprovingThings.Array.data[0]
+      value: agr
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b468678761c09354ba15323b7c254825, type: 2}
