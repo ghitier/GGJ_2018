@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1ab8a73d8fd6f274c9c18b65f1d8e61d
-timeCreated: 1517070667
+timeCreated: 1517097996
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -128,7 +128,7 @@ TextureImporter:
         width: 255.2
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,7 +142,7 @@ TextureImporter:
         width: 255.2
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,7 +156,7 @@ TextureImporter:
         width: 255.2
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,7 +170,7 @@ TextureImporter:
         width: 255.2
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,21 +184,7 @@ TextureImporter:
         width: 255.2
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_5
-      rect:
-        serializedVersion: 2
-        x: 1275
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,52 +193,10 @@ TextureImporter:
       name: hair_6
       rect:
         serializedVersion: 2
-        x: 1530
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_7
-      rect:
-        serializedVersion: 2
-        x: 1785
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_8
-      rect:
-        serializedVersion: 2
-        x: 2040
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_9
-      rect:
-        serializedVersion: 2
-        x: 2295
-        y: 0
-        width: 255.2
-        height: 254
+        x: 1596
+        y: 16
+        width: 51
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

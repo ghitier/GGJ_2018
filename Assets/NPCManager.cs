@@ -28,7 +28,8 @@ public class NPCManager : Singleton<NPCManager> {
 
     public Color[] skinColors = new Color[0];
     public Color[] hairColors = new Color[0];
-    
+    public Color[] clothColors = new Color[0];
+
     private Dictionary<PartType, List<Sprite>> maleSpritesDico = new Dictionary<PartType, List<Sprite>>();
     private Dictionary<PartType, List<Sprite>> femaleSpritesDico = new Dictionary<PartType, List<Sprite>>();
 
@@ -42,11 +43,12 @@ public class NPCManager : Singleton<NPCManager> {
         maleSpritesDico.Add(PartType.MouthNormal, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Mouth")));
         maleSpritesDico.Add(PartType.MouthSad, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/MouthSad")));
         maleSpritesDico.Add(PartType.MouthHappy, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/MouthHappy")));
-
-
+        
         maleSpritesDico.Add(PartType.Body, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Body")));
         maleSpritesDico.Add(PartType.Cloth, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Cloth")));
+        maleSpritesDico.Add(PartType.Beard, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Beard")));
         
+        // -----------------------------------------------------------------------------------------------------
 
         femaleSpritesDico.Add(PartType.Eyes, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Eyes")));
         femaleSpritesDico.Add(PartType.Hair, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Hair")));
@@ -59,6 +61,7 @@ public class NPCManager : Singleton<NPCManager> {
 
         femaleSpritesDico.Add(PartType.Body, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Body")));
         femaleSpritesDico.Add(PartType.Cloth, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Cloth")));
+        femaleSpritesDico.Add(PartType.Beard, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Beard")));
     }
 
     public Sprite GetRandomSprite(PartType partType, Gender gender)

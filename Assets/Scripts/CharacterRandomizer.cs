@@ -126,6 +126,7 @@ public class CharacterRandomizer : MonoBehaviour {
                         break;
 
                     case PartType.Hair:
+                    case PartType.Beard:
                         renderer.color = hairColor;
                         renderer.sortingOrder = layerOrder + 4;
                         break;
@@ -135,6 +136,7 @@ public class CharacterRandomizer : MonoBehaviour {
                         break;
 
                     case PartType.MouthNormal:
+                        renderer.color = skinColor;
                         mouth = p;
                         renderer.sortingOrder = layerOrder + 2;
                         break;

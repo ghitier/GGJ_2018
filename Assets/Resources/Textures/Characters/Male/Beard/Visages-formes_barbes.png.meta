@@ -1,19 +1,14 @@
 fileFormatVersion: 2
-guid: 95f4e045e5ec8b5429639f1c6862847f
-timeCreated: 1517097975
+guid: 415be8a6f98e48d48afe489865524bd3
+timeCreated: 1517094900
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hair_0
-    21300002: hair_1
-    21300004: hair_2
-    21300006: hair_3
-    21300008: hair_4
-    21300010: hair_5
-    21300012: hair_6
-    21300014: hair_7
-    21300016: hair_8
-    21300018: hair_9
+    21300000: Visages-formes_barbes_0
+    21300002: Visages-formes_barbes_1
+    21300004: Visages-formes_barbes_2
+    21300006: Visages-formes_barbes_3
+    21300008: Visages-formes_barbes_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -120,12 +115,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hair_4
+      name: Visages-formes_barbes_0
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 0
         y: 0
-        width: 255.2
+        width: 254.8
         height: 254
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -134,71 +129,57 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_5
+      name: Visages-formes_barbes_1
       rect:
         serializedVersion: 2
-        x: 1275
+        x: 254
         y: 0
-        width: 255.2
+        width: 254.8
         height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5106834, y: 0.4678477}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_6
+      name: Visages-formes_barbes_2
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 508
         y: 0
-        width: 255.2
+        width: 254.8
         height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.4303367}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_7
+      name: Visages-formes_barbes_3
       rect:
         serializedVersion: 2
-        x: 1785
+        x: 762
         y: 0
-        width: 255.2
+        width: 254.8
         height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.52670896, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_8
+      name: Visages-formes_barbes_4
       rect:
         serializedVersion: 2
-        x: 2040
+        x: 1016
         y: 0
-        width: 255.2
+        width: 254.8
         height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_9
-      rect:
-        serializedVersion: 2
-        x: 2295
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.51, y: 0.44}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

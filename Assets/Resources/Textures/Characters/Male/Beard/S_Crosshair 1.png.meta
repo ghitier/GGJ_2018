@@ -1,19 +1,12 @@
 fileFormatVersion: 2
-guid: 95f4e045e5ec8b5429639f1c6862847f
-timeCreated: 1517097975
+guid: 11264d4f530219b43a7f905e35288295
+timeCreated: 1517095013
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hair_0
-    21300002: hair_1
-    21300004: hair_2
-    21300006: hair_3
-    21300008: hair_4
-    21300010: hair_5
-    21300012: hair_6
-    21300014: hair_7
-    21300016: hair_8
-    21300018: hair_9
+    21300000: S_Crosshair 1_0
+    21300002: S_Crosshair 1_1
+    21300004: S_Crosshair 1_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -120,85 +113,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hair_4
+      name: S_Crosshair 1_0
       rect:
         serializedVersion: 2
-        x: 1020
-        y: 0
-        width: 255.2
-        height: 254
+        x: 237
+        y: 357
+        width: 42
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_5
+      name: S_Crosshair 1_1
       rect:
         serializedVersion: 2
-        x: 1275
-        y: 0
-        width: 255.2
-        height: 254
+        x: 332
+        y: 338
+        width: 29
+        height: 57
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_6
+      name: S_Crosshair 1_2
       rect:
         serializedVersion: 2
-        x: 1530
-        y: 0
-        width: 255.2
-        height: 254
+        x: 421
+        y: 351
+        width: 20
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_7
-      rect:
-        serializedVersion: 2
-        x: 1785
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_8
-      rect:
-        serializedVersion: 2
-        x: 2040
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hair_9
-      rect:
-        serializedVersion: 2
-        x: 2295
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
