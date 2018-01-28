@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4461530747288846}
   - component: {fileID: 212318758340069676}
   - component: {fileID: 114470522466681870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4320363902924074}
   - component: {fileID: 212254628638675780}
   - component: {fileID: 114712918213009290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4779807488758112}
   - component: {fileID: 212845246065306194}
   - component: {fileID: 114134968710253884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4695261711131504}
   - component: {fileID: 212159699309162846}
   - component: {fileID: 114840973505417972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4652378036414380}
   - component: {fileID: 212188909266058212}
   - component: {fileID: 114993350184269788}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4398362916879236}
   - component: {fileID: 212686525674366544}
   - component: {fileID: 114930688377182248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arms_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4280189245464302}
   - component: {fileID: 212844110976354282}
   - component: {fileID: 114905164342179796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4690822859052454}
   - component: {fileID: 212930542953899784}
   - component: {fileID: 114403555951409572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arms_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4361097206167040}
   - component: {fileID: 114319263090818646}
   - component: {fileID: 95481433339794430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4624305000934348}
   - component: {fileID: 212677463528313830}
   - component: {fileID: 114183045844652632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cloth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 212016320252461960}
   - component: {fileID: 114047200625941558}
   - component: {fileID: 65072862219809906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,8 +231,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748699534768980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.552, y: -1.802, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.524, y: -2.449, z: 0}
   m_LocalScale: {x: 0.24223, y: 0.24223, z: 0.24223}
   m_Children:
   - {fileID: 4471584528719352}
@@ -434,6 +434,7 @@ MonoBehaviour:
   gender: 1
   randomize: 1
   disapprovingThings: []
+  approvingThings: []
 --- !u!114 &114403555951409572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -743,7 +744,7 @@ SpriteRenderer:
   m_Size: {x: 4.3466663, y: 4.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212677463528313830
 SpriteRenderer:
