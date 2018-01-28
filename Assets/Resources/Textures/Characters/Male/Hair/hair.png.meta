@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1ab8a73d8fd6f274c9c18b65f1d8e61d
-timeCreated: 1517097996
+timeCreated: 1517104377
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -176,20 +176,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hair_4
-      rect:
-        serializedVersion: 2
-        x: 1020
-        y: 0
-        width: 255.2
-        height: 254
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: hair_6
       rect:
         serializedVersion: 2
@@ -198,7 +184,7 @@ TextureImporter:
         width: 51
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

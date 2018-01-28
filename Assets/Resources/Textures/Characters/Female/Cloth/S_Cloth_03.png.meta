@@ -1,12 +1,14 @@
 fileFormatVersion: 2
-guid: 8681eb089df29404e8d4cd2ffa0097ee
-timeCreated: 1517078281
+guid: 9ec616cc24acaf34a95964b30cf72cd7
+timeCreated: 1517105083
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: corpulences_0
-    21300002: corpulences_1
-    21300004: corpulences_2
+    21300000: Corpulence-3_0
+    21300002: Corpulence-3_1
+    21300004: Corpulence-3_2
+    21300006: Corpulence-3_3
+    21300008: Corpulence-3_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -113,27 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: corpulences_0
+      name: Corpulence-3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 434.66666
-        height: 418
-      alignment: 9
-      pivot: {x: 0.51923084, y: 0.4366742}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: corpulences_1
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 0
-        width: 434.66666
-        height: 418
+        y: 1670.4
+        width: 418
+        height: 417.6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,15 +129,43 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: corpulences_2
+      name: Corpulence-3_1
       rect:
         serializedVersion: 2
-        x: 869
-        y: 0
-        width: 435
-        height: 418
-      alignment: 9
-      pivot: {x: 0.41032517, y: 0.50666577}
+        x: 0
+        y: 1253.4
+        width: 418
+        height: 417.6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Corpulence-3_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 836.4
+        width: 418
+        height: 417.6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Corpulence-3_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 419.4
+        width: 418
+        height: 417.6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

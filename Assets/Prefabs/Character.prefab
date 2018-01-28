@@ -180,7 +180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1882829710294808
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748699534768980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.356, y: -1.776, z: 0}
+  m_LocalPosition: {x: -5.552, y: -1.802, z: 0}
   m_LocalScale: {x: 0.24223, y: 0.24223, z: 0.24223}
   m_Children:
   - {fileID: 4471584528719352}
@@ -293,13 +293,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1794058916661382}
-  m_LocalRotation: {x: -0, y: -0, z: -0.019099165, w: 0.9998176}
-  m_LocalPosition: {x: 0.11, y: -1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17, y: -1.1, z: 0}
+  m_LocalScale: {x: 1.0007751, y: 1.0007755, z: 1.0007755}
   m_Children: []
   m_Father: {fileID: 4361097206167040}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.1890001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4652378036414380
 Transform:
   m_ObjectHideFlags: 1
@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  relative: {fileID: 0}
 --- !u!114 &114134968710253884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -405,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
+  relative: {fileID: 0}
 --- !u!114 &114183045844652632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -417,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 9
+  relative: {fileID: 114470522466681870}
 --- !u!114 &114319263090818646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fda22ed65800be4586422d3d8c3c7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gender: 0
+  gender: 1
   randomize: 1
   disapprovingThings: []
 --- !u!114 &114403555951409572
@@ -443,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  relative: {fileID: 0}
 --- !u!114 &114470522466681870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -455,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 8
+  relative: {fileID: 0}
 --- !u!114 &114712918213009290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,6 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 10
+  relative: {fileID: 0}
 --- !u!114 &114840973505417972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  relative: {fileID: 0}
 --- !u!114 &114905164342179796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -491,6 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  relative: {fileID: 0}
 --- !u!114 &114930688377182248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  relative: {fileID: 0}
 --- !u!114 &114993350184269788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -515,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  relative: {fileID: 0}
 --- !u!212 &212016320252461960
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -725,12 +735,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300004, guid: 08cd247e954e2484b9d386f0c628db3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 875a18c85fcf82a4d94e0db5c7a8623a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.1766667, y: 4.18}
+  m_Size: {x: 4.3466663, y: 4.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -768,8 +778,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 5fc54f72bca2f0a48bf20b01a2108275, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300008, guid: 5850717ec39730d43acf04bbb4246d37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
