@@ -8,6 +8,8 @@ public class President : Singleton<President> {
     public AudioClip applauseSound;
 
     public List<AudioClip> firstClips = new List<AudioClip>();
+    public AudioClip snackClip;
+    private bool _snackWasAdded = false;
 
     private AudioClip[] _speeches = new AudioClip[0];
     private AudioSource _source;
@@ -24,6 +26,13 @@ public class President : Singleton<President> {
     private void Start()
     {
         StartCoroutine(Speech_Routine());
+        SnackDoor.OnSnackDoorOpen += OnSnackOpen;
+    }
+
+    public void OnSnackOpen()
+    {
+        _snackWasAdded = true;
+        SnackDoor.OnSnackDoorOpen -= OnSnackOpen;
     }
 
     private IEnumerator Speech_Routine()
@@ -69,6 +78,11 @@ public class President : Singleton<President> {
             {
                 selectee = firstClips[0];
                 firstClips.RemoveAt(0);
+            }
+            else if (_snackWasAdded)
+            {
+                selectee = snackClip;
+                _snackWasAdded = false;
             }
             else
             {
