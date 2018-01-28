@@ -43,7 +43,7 @@ public class NPCMumble : MonoBehaviour {
     private void LateUpdate()
     {
         _source.maxDistance = _oriRange * CameraManager._zoomLevel;
-        _source.volume = _oriVolume + 0.1f * (1 - CameraManager._zoomLevel);
+        _source.volume = _oriVolume + 0.13f * (1 - CameraManager._zoomLevel);
 
     }
 

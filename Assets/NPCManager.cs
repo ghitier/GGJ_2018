@@ -85,7 +85,6 @@ public class NPCManager : Singleton<NPCManager> {
             default:
                 Debug.LogWarning("Unknown gender. Wtf ?");
                 return null;
-                break;
         }
 
         List<Sprite> refList = refDico[partType];
