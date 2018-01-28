@@ -16,7 +16,10 @@ public class CharacterRandomizer : MonoBehaviour {
 
     private List<BodyPartRandomizer> _parts = new List<BodyPartRandomizer>();
 
+    public GameObject bloodObject;
+
     private BodyPartRandomizer mouth;
+    private BodyPartRandomizer closedEyes;
     private Animator _animator;
     private NPCMumble _mumble;
     public Color skinColor;
@@ -25,6 +28,9 @@ public class CharacterRandomizer : MonoBehaviour {
 
     private void Awake()
     {
+        bloodObject = transform.Find("Face/Blood").gameObject;
+        bloodObject.SetActive(false);
+
         _animator = GetComponent<Animator>();
         
         if(randomize)
@@ -46,6 +52,8 @@ public class CharacterRandomizer : MonoBehaviour {
         }
 
         President.OnSentenceSpoken += ReactToSentence;
+
+        Invoke("ToggleEyes", Random.Range(5f, 20f));
     }
 
     public void ReactToSentence(string sentence)
@@ -154,11 +162,11 @@ public class CharacterRandomizer : MonoBehaviour {
                     case PartType.Hair:
                     case PartType.Beard:
                         renderer.color = hairColor;
-                        renderer.sortingOrder = layerOrder + 5;
+                        renderer.sortingOrder = layerOrder + 7;
                         break;
 
                     case PartType.Eyes:
-                        renderer.sortingOrder = layerOrder + 6;
+                        renderer.sortingOrder = layerOrder + 5;
                         break;
 
                     case PartType.MouthNormal:
@@ -170,8 +178,17 @@ public class CharacterRandomizer : MonoBehaviour {
             }
             else
             {
-                p.GetSpriteRenderer().color = skinColor;
-                renderer.sortingOrder = layerOrder + 6 + partIdx++;
+                renderer.color = skinColor;
+                if(p.name.Contains("ClosedEyes"))
+                {
+                    closedEyes = p;
+                    closedEyes.gameObject.SetActive(false);
+                    renderer.sortingOrder = layerOrder + 6;
+                }
+                else // bras
+                {
+                    renderer.sortingOrder = layerOrder + 6 + partIdx++;
+                }
             }
         }
         // Debug.Log("... " + t.parent.Find("Killer").gameObject.GetComponent<CharacterRandomizer>().StringifyCharacter());
@@ -232,6 +249,23 @@ public class CharacterRandomizer : MonoBehaviour {
                 p.GetSpriteRenderer().color = skinColor;
                 renderer.sortingOrder = layerOrder + 6 + partIdx++;
             }
+        }
+    }
+
+    private void ToggleEyes()
+    {
+        if (closedEyes == null) return;
+
+        bool state = closedEyes.gameObject.activeSelf;
+        closedEyes.gameObject.SetActive(!state);
+        
+        if(!state)
+        {
+            Invoke("ToggleEyes", Random.Range(0.5f, 0.8f));
+        }
+        else
+        {
+            Invoke("ToggleEyes", Random.Range(10f, 20f));
         }
     }
 
