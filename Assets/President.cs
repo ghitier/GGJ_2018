@@ -5,6 +5,8 @@ using PresidentExtensions;
 
 public class President : Singleton<President> {
 
+    public Animator presidentAnimator;
+
     public AudioClip applauseSound;
 
     public List<AudioClip> firstClips = new List<AudioClip>();
@@ -44,6 +46,11 @@ public class President : Singleton<President> {
         _source.Stop();
         _source.clip = deathClip;
         _source.Play();
+    }
+
+    private void MakeFingerGreatAgain()
+    {
+        presidentAnimator.SetTrigger("Mawmawmaw");
     }
 
     private IEnumerator Speech_Routine()
@@ -102,6 +109,11 @@ public class President : Singleton<President> {
 
             _source.clip = selectee;
             _source.Play();
+
+            if(Random.value >= 0.9f)
+            {
+                MakeFingerGreatAgain();
+            }
 
             done.Add(selectee);
             yield return new WaitForSeconds(0.1f);
