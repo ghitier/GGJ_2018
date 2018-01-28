@@ -434,7 +434,8 @@ MonoBehaviour:
   gender: 1
   randomize: 1
   disapprovingThings: []
-  approvingThings: []
+  approvingThings:
+  - snack
   skinColor: {r: 0, g: 0, b: 0, a: 0}
   hairColor: {r: 0, g: 0, b: 0, a: 0}
   clothColor: {r: 0, g: 0, b: 0, a: 0}

@@ -139,6 +139,20 @@ public class CameraManager : Singleton<CameraManager> {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("S_Menu");
             });
         }
+        else if(TargetedCharacter() != null)
+        {
+            FadeScreen.Instance.FadeOut("Vous n'avez pas trouvé la bonne personne, l'assassin s'est enfui..", "Oooh mince !", delegate
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("S_Menu");
+            });
+        }
+        else
+        {
+            FadeScreen.Instance.FadeOut("La balle n'a eu aucun effet, l'assassin s'est enfui..", "Oooh mince !", delegate
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("S_Menu");
+            });
+        }
 
     }
     
