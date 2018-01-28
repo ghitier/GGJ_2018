@@ -10,9 +10,6 @@ public class CharacterRandomizer : MonoBehaviour {
 
     public Gender gender;
     public bool randomize;
-    public int defaultSkinColorIndex = 0;
-    public int defaultHairColorIndex = 0;
-    public int defaultClothColorIndex = 0;
     public List<string> disapprovingThings = new List<string>();
 
     private List<BodyPartRandomizer> _parts = new List<BodyPartRandomizer>();
