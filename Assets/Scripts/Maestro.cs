@@ -51,11 +51,38 @@ public class Maestro : Singleton<Maestro> {
         {
             _mumbleNames[i] = _mumbles[i].name;
         }
+        
+        CharacterRandomizer[] allCharacters = PopulateMumbles();
+        List<CharacterRandomizer> nonRandomizedCharacters = new List<CharacterRandomizer>();
+
+        foreach(var c in allCharacters)
+        {
+            if(!c.randomize)
+            {
+                nonRandomizedCharacters.Add(c);
+            }
+        }
+        
+        foreach(var c in nonRandomizedCharacters)
+        {
+            CharacterRandomizer randomSibling = allCharacters[Random.Range(0, allCharacters.Length)];
+            Vector3 sibPos = randomSibling.transform.position;
+            int sibIndex = randomSibling.transform.GetSiblingIndex();
+            Vector3 sibScale = randomSibling.transform.localScale;
+
+            randomSibling.transform.position = c.transform.position;
+            randomSibling.transform.SetSiblingIndex(c.transform.GetSiblingIndex());
+            randomSibling.transform.localScale = c.transform.localScale;
+
+            c.transform.position = sibPos;
+            c.transform.SetSiblingIndex(sibIndex);
+            c.transform.localScale = sibScale;
+        }
     }
 
     private void Start()
     {
-        PopulateMumbles();
+        
     }
 
     private void Update()
@@ -88,10 +115,10 @@ public class Maestro : Singleton<Maestro> {
         _index = (_index + 1) % crossfadeSources.Length;
     }
     
-    private void PopulateMumbles()
+    private CharacterRandomizer[] PopulateMumbles()
     {
         CharacterRandomizer[] allCharacters = Object.FindObjectsOfType<CharacterRandomizer>();
-
+        
         foreach (var c in allCharacters)
         {
             GameObject newMumble = Instantiate(mumblePrefab) as GameObject;
@@ -99,7 +126,10 @@ public class Maestro : Singleton<Maestro> {
             newMumble.transform.localPosition = Vector3.zero;
 
             c.SetMumble(newMumble.GetComponent<NPCMumble>());
+            
         }
+
+        return allCharacters;
     }
 
     public AudioClip GetRandomMumble()
