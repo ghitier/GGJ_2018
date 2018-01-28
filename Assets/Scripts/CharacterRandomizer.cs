@@ -19,9 +19,9 @@ public class CharacterRandomizer : MonoBehaviour {
     private BodyPartRandomizer mouth;
     private Animator _animator;
     private NPCMumble _mumble;
-    private Color skinColor;
-    private Color hairColor;
-    private Color clothColor;
+    public Color skinColor;
+    public Color hairColor;
+    public Color clothColor;
 
     private void Awake()
     {
@@ -40,6 +40,9 @@ public class CharacterRandomizer : MonoBehaviour {
         if(randomize)
         {
             RandomizeParts();
+        } else
+        {
+            ApplyParts();
         }
 
         President.OnSentenceSpoken += ReactToSentence;
@@ -171,8 +174,65 @@ public class CharacterRandomizer : MonoBehaviour {
                 renderer.sortingOrder = layerOrder + 6 + partIdx++;
             }
         }
+        // Debug.Log("... " + t.parent.Find("Killer").gameObject.GetComponent<CharacterRandomizer>().StringifyCharacter());
         if (CompareCharacter(t.parent.Find("Killer").gameObject.GetComponent<CharacterRandomizer>()))
             RandomizeParts();
+    }
+
+    public void ApplyParts()
+    {
+        Transform t = GetComponent<Transform>();
+        int siblingIdx = t.GetSiblingIndex();
+
+        int partIdx = 0;
+        int layerOrder = (t.parent.childCount - siblingIdx) * _parts.Count;
+        foreach (var p in _parts)
+        {
+            SpriteRenderer renderer = p.GetSpriteRenderer();
+            if (p.type != PartType.None)
+            {
+                switch (p.type)
+                {
+                    case PartType.Body:
+                        renderer.color = skinColor;
+                        renderer.sortingOrder = layerOrder;
+                        break;
+                    case PartType.Cloth:
+                        renderer.color = clothColor;
+                        renderer.sortingOrder = layerOrder + 1;
+                        break;
+                    case PartType.Head:
+                        renderer.color = skinColor;
+                        renderer.sortingOrder = layerOrder + 2;
+                        break;
+                    case PartType.Nose:
+                        renderer.color = skinColor;
+                        renderer.sortingOrder = layerOrder + 4;
+                        break;
+
+                    case PartType.Hair:
+                    case PartType.Beard:
+                        renderer.color = hairColor;
+                        renderer.sortingOrder = layerOrder + 5;
+                        break;
+
+                    case PartType.Eyes:
+                        renderer.sortingOrder = layerOrder + 6;
+                        break;
+
+                    case PartType.MouthNormal:
+                        renderer.color = skinColor;
+                        mouth = p;
+                        renderer.sortingOrder = layerOrder + 3;
+                        break;
+                }
+            }
+            else
+            {
+                p.GetSpriteRenderer().color = skinColor;
+                renderer.sortingOrder = layerOrder + 6 + partIdx++;
+            }
+        }
     }
 
     public string StringifyCharacter()
