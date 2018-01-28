@@ -36,11 +36,6 @@ public class NPCManager : Singleton<NPCManager> {
 
     private void Awake()
     {
-        for (int i = 0; i < clothColors.Length; i++)
-        {
-            clothColors[i] = new Color(Random.value, Random.value, Random.value);
-        }
-
         maleSpritesDico.Add(PartType.Eyes, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Eyes")));
         maleSpritesDico.Add(PartType.Hair, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Hair")));
         maleSpritesDico.Add(PartType.Nose, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Noses")));

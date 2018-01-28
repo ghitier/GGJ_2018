@@ -10,6 +10,9 @@ public class CharacterRandomizer : MonoBehaviour {
 
     public Gender gender;
     public bool randomize;
+    public int defaultSkinColorIndex = 0;
+    public int defaultHairColorIndex = 0;
+    public int defaultClothColorIndex = 0;
     public List<string> disapprovingThings = new List<string>();
 
     private List<BodyPartRandomizer> _parts = new List<BodyPartRandomizer>();
@@ -17,6 +20,9 @@ public class CharacterRandomizer : MonoBehaviour {
     private BodyPartRandomizer mouth;
     private Animator _animator;
     private NPCMumble _mumble;
+    private Color skinColor;
+    private Color hairColor;
+    private Color clothColor;
 
     private void Awake()
     {
@@ -98,9 +104,9 @@ public class CharacterRandomizer : MonoBehaviour {
         Transform t = GetComponent<Transform>();
         int siblingIdx = t.GetSiblingIndex();
 
-        Color skinColor = NPCManager.Instance.GetRandomSkinColor();
-        Color hairColor = NPCManager.Instance.GetRandomHairColor();
-        Color clothColor = NPCManager.Instance.GetRandomClothColor();
+        skinColor = NPCManager.Instance.GetRandomSkinColor();
+        hairColor = NPCManager.Instance.GetRandomHairColor();
+        clothColor = NPCManager.Instance.GetRandomClothColor();
 
         int partIdx = 0;
         int layerOrder = (t.parent.childCount - siblingIdx) * _parts.Count;
@@ -153,6 +159,8 @@ public class CharacterRandomizer : MonoBehaviour {
                 renderer.sortingOrder = layerOrder + 6 + partIdx++;
             }
         }
+        if (CompareCharacter(t.parent.Find("Killer").gameObject.GetComponent<CharacterRandomizer>()))
+            RandomizeParts();
     }
 
     public string StringifyCharacter()
@@ -160,11 +168,15 @@ public class CharacterRandomizer : MonoBehaviour {
         string res = "";
         foreach(var p in _parts)
         {
-            res += p.GetSpriteRenderer().sprite.name;
-            res += "|";
+            if (p.GetSpriteRenderer().sprite != null)
+            {
+                res += p.GetSpriteRenderer().sprite.name;
+                res += "|";
+            }
         }
-        res += "sc#" + NPCManager.Instance.GetRandomSkinColor().ToString();
-        res += "|hc#" + NPCManager.Instance.GetRandomHairColor().ToString();
+        res += "sc#" + skinColor.ToString() + "|";
+        res += "hc#" + hairColor.ToString() + "|";
+        res += "cc#" + clothColor.ToString() + "|";
         return res;
     }
 
