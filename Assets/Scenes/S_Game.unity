@@ -1376,10 +1376,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlled: 1
   shotSound: {fileID: 8300000, guid: 5a413ed1df60e20488e761c7692db4c3, type: 3}
+  akShotSound: {fileID: 8300000, guid: 4bacdc2072bb8b44cad21a18f764b544, type: 3}
   zoomSound: {fileID: 8300000, guid: 90e557d9758a21b49bcd43c5ca1cd42a, type: 3}
   panicSound: {fileID: 8300000, guid: f0e048e208591b34097afa301ffae093, type: 3}
   lastHitObject: {fileID: 0}
-  assassin: {fileID: 1967753781}
+  assassin: {fileID: 1019244729}
 --- !u!4 &114481983 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4361097206167040, guid: b468678761c09354ba15323b7c254825,
@@ -4423,6 +4424,11 @@ Prefab:
       propertyPath: m_Name
       value: TimeManager
       objectReference: {fileID: 0}
+    - target: {fileID: 114314277188724908, guid: c968646b882f9e7418763a3c7d8ceaae,
+        type: 2}
+      propertyPath: totalTime
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c968646b882f9e7418763a3c7d8ceaae, type: 2}
   m_IsPrefabParent: 0
@@ -7409,9 +7415,74 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: skinColor.r
+      value: 0.9490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: skinColor.g
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: skinColor.b
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: skinColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: hairColor.r
+      value: 0.50735295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: hairColor.g
+      value: 0.50735295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: hairColor.b
+      value: 0.50735295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: hairColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: clothColor.r
+      value: 0.89705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: clothColor.g
+      value: 0.86157024
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: clothColor.b
+      value: 0.415
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319263090818646, guid: b468678761c09354ba15323b7c254825,
+        type: 2}
+      propertyPath: clothColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b468678761c09354ba15323b7c254825, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1019244729 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1882829710294808, guid: b468678761c09354ba15323b7c254825,
+    type: 2}
+  m_PrefabInternal: {fileID: 1019244728}
 --- !u!1001 &1036258596
 Prefab:
   m_ObjectHideFlags: 0
@@ -10480,6 +10551,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5409cf31076a1c48af2cb027b9db3da, type: 3}
   - {fileID: 8300000, guid: ec9d59f6b8379a24c9d513f5711e6f85, type: 3}
   snackClip: {fileID: 8300000, guid: 762706712768bcf41b5d453d16d2f8f8, type: 3}
+  deathClip: {fileID: 8300000, guid: 90a7054dc86d9e846b2d1b791387d2eb, type: 3}
 --- !u!1001 &1525250380
 Prefab:
   m_ObjectHideFlags: 0
@@ -13665,11 +13737,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4361097206167040, guid: b468678761c09354ba15323b7c254825,
     type: 2}
   m_PrefabInternal: {fileID: 1961436310}
---- !u!1 &1967753781 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1748699534768980, guid: b468678761c09354ba15323b7c254825,
-    type: 2}
-  m_PrefabInternal: {fileID: 1019244728}
 --- !u!1 &1979114012
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class CameraManager : Singleton<CameraManager> {
 
     public bool controlled = true;
     public AudioClip shotSound;
+    public AudioClip akShotSound;
     public AudioClip zoomSound;
     public AudioClip panicSound;
     public GameObject lastHitObject = null;
@@ -53,6 +54,8 @@ public class CameraManager : Singleton<CameraManager> {
         transform.position = _oriPos;
 
         SetUpGame();
+
+        TimeManager.OnTimerEnd += OnTimerEnd;
     }
 
 
@@ -94,6 +97,19 @@ public class CameraManager : Singleton<CameraManager> {
         }        
     }
 
+    public void OnTimerEnd()
+    {
+        TimeManager.OnTimerEnd -= OnTimerEnd;
+
+        Maestro.Instance.PlayClipOnce(akShotSound);
+        Maestro.Instance.PlaySound(panicSound);
+
+        FadeScreen.Instance.FadeOut("Vous n'avez pas pu empêcher l'assassinat de notre vénérable président !", "Oh, noooon !", delegate
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("S_Menu");
+        });
+    }
+
     private void SetUpGame()
     {
         Cursor.visible = true;
@@ -117,6 +133,7 @@ public class CameraManager : Singleton<CameraManager> {
         {
             FadeScreen.Instance.FadeOut("Vous avez prévenu l'assassinat de notre estimé président !", "Youpi !", delegate
             {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("S_Menu");
             });
         }
 

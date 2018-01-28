@@ -11,7 +11,7 @@ public class AnalogTime
     public int Second;
 }
 
-public class ClockAnimator : MonoBehaviour {
+public class ClockAnimator : Singleton<ClockAnimator> {
     private DateTime startTime;
     private const float
         hoursToDegrees = 360f / 12f,
