@@ -18,12 +18,6 @@ public class NPCMumble : MonoBehaviour {
         }
         set
         {
-            if(value != "neutral")
-            {
-                StopAllCoroutines();
-                StartCoroutine(Mumble_Routine());
-            }
-
             _currentEmotion = value;
         }
     }
@@ -55,11 +49,12 @@ public class NPCMumble : MonoBehaviour {
         {
             if(_currentEmotion != "neutral")
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0.2f, 0.7f));
             }
             else
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 20f));
+                float waitTime = Time.time + Random.Range(0f, 10f);
+                yield return new WaitUntil(() => Time.time >= waitTime || _currentEmotion != "neutral");
             }
             
             if (!_source.isPlaying || _source.clip == null)

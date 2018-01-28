@@ -7,6 +7,8 @@ public class President : Singleton<President> {
 
     public AudioClip applauseSound;
 
+    public List<AudioClip> firstClips = new List<AudioClip>();
+
     private AudioClip[] _speeches = new AudioClip[0];
     private AudioSource _source;
 
@@ -62,7 +64,16 @@ public class President : Singleton<President> {
             yield return new WaitUntil(() => !_source.isPlaying);
 
             AudioClip selectee = todo[UnityEngine.Random.Range(0, todo.Count)];
-            todo.Remove(selectee);
+            
+            if (firstClips.Count > 0)
+            {
+                selectee = firstClips[0];
+                firstClips.RemoveAt(0);
+            }
+            else
+            {
+                todo.Remove(selectee);
+            }
 
             _source.clip = selectee;
             _source.Play();

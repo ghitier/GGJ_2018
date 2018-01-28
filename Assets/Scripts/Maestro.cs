@@ -11,6 +11,7 @@ public class Maestro : Singleton<Maestro> {
     public GameObject mumblePrefab;
 
     private AudioClip[] _mumbles;
+    private string[] _mumbleNames;
 
     private int _index = 0;
     public float crossfadeTimer = 1f;
@@ -44,6 +45,12 @@ public class Maestro : Singleton<Maestro> {
     private void Awake()
     {
         _mumbles = Resources.LoadAll<AudioClip>("SFX/mumbles");
+        _mumbleNames = new string[_mumbles.Length];
+
+        for (int i = 0; i < _mumbles.Length; i++)
+        {
+            _mumbleNames[i] = _mumbles[i].name;
+        }
     }
 
     private void Start()
@@ -102,16 +109,16 @@ public class Maestro : Singleton<Maestro> {
 
     public AudioClip GetRandomMumble(string emotion)
     {
-        List<AudioClip> _selectees = new List<AudioClip>();
-        foreach(var mum in _mumbles)
+        List<int> _selectees = new List<int>();
+        for (int i = 0; i < _mumbleNames.Length; i++)
         {
-            if(mum.name.Contains(emotion))
+            if(_mumbleNames[i].Contains(emotion))
             {
-                _selectees.Add(mum);
+                _selectees.Add(i);
             }
         }
 
-        return _selectees[UnityEngine.Random.Range(0, _selectees.Count)];
+        return _mumbles[_selectees[UnityEngine.Random.Range(0, _selectees.Count)]];
     }
 
     private IEnumerator Crossfade_Routine(bool loop = true)

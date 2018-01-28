@@ -10,7 +10,9 @@ public class CharacterRandomizer : MonoBehaviour {
 
     public Gender gender;
     public bool randomize;
+
     public List<string> disapprovingThings = new List<string>();
+    public List<string> approvingThings = new List<string>();
 
     private List<BodyPartRandomizer> _parts = new List<BodyPartRandomizer>();
 
@@ -60,13 +62,26 @@ public class CharacterRandomizer : MonoBehaviour {
                 dislike = true;
             }
         }
+        bool reallyLike = false;
+        foreach (var s in approvingThings)
+        {
+            if (sentence.Contains(s))
+            {
+                reallyLike = true;
+            }
+        }
+
+        if(reallyLike)
+        {
+            dislike = false;
+        }
 
         if (!dislike && Random.value < 0.20f)
         {
             dislike = true;
         }
 
-        SetEmotion(dislike ? "bad" : (Random.value > 0.5f) ? "happy" : "neutral");
+        SetEmotion(dislike ? "bad" : (Random.value > 0.5f || reallyLike) ? "happy" : "neutral");
     }
     
     public void SetEmotion(string emotion)
