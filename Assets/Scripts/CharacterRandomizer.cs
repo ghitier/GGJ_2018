@@ -158,6 +158,8 @@ public class CharacterRandomizer : MonoBehaviour {
             res += p.GetSpriteRenderer().sprite.name;
             res += "|";
         }
+        res += "sc#" + NPCManager.Instance.GetRandomSkinColor().ToString();
+        res += "|hc#" + NPCManager.Instance.GetRandomHairColor().ToString();
         return res;
     }
 
