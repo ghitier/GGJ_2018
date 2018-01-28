@@ -31,9 +31,9 @@ public class ClockAnimator : Singleton<ClockAnimator> {
 	
 	// Update is called once per frame
 	void Update () {
-        DateTime time = startTime.AddSeconds(Time.timeSinceLevelLoad * scale);
-        hours.localRotation = Quaternion.Euler(0f, 0f, time.Hour * -hoursToDegrees);
-        minutes.localRotation = Quaternion.Euler(0f, 0f, time.Minute * -minutesToDegrees);
-        seconds.localRotation = Quaternion.Euler(0f, 0f, time.Second * -secondsToDegrees);
+        TimeSpan time = startTime.AddSeconds(Time.timeSinceLevelLoad * scale).TimeOfDay;
+        hours.localRotation = Quaternion.Euler(0f, 0f, (float)time.TotalHours * -hoursToDegrees);
+        minutes.localRotation = Quaternion.Euler(0f, 0f, (float)time.TotalMinutes * -minutesToDegrees);
+        seconds.localRotation = Quaternion.Euler(0f, 0f, (float)time.TotalSeconds * -secondsToDegrees);
     }
 }
