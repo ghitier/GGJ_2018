@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 9ec616cc24acaf34a95964b30cf72cd7
-timeCreated: 1517095756
+guid: 1f82d1b226eddef41b2dc3cca3b00c6a
+timeCreated: 1517095748
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Corpulence-3_0
-    21300002: Corpulence-3_1
-    21300004: Corpulence-3_2
-    21300006: Corpulence-3_3
-    21300008: Corpulence-3_4
+    21300000: Corpulence-2_0
+    21300002: Corpulence-2_1
+    21300004: Corpulence-2_2
+    21300006: Corpulence-2_3
+    21300008: Corpulence-2_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,12 +115,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Corpulence-3_0
+      name: Corpulence-2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 1670.4
-        width: 418
+        width: 419
         height: 417.6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -129,12 +129,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Corpulence-3_1
+      name: Corpulence-2_1
       rect:
         serializedVersion: 2
         x: 0
         y: 1253.4
-        width: 418
+        width: 419
         height: 417.6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,12 +143,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Corpulence-3_2
+      name: Corpulence-2_2
       rect:
         serializedVersion: 2
         x: 0
         y: 836.4
-        width: 418
+        width: 419
         height: 417.6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,12 +157,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Corpulence-3_3
+      name: Corpulence-2_3
       rect:
         serializedVersion: 2
         x: 0
         y: 419.4
-        width: 418
+        width: 419
         height: 417.6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -171,12 +171,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Corpulence-3_4
+      name: Corpulence-2_4
       rect:
         serializedVersion: 2
         x: 0
         y: 2.399994
-        width: 418
+        width: 419
         height: 417.6
       alignment: 0
       pivot: {x: 0, y: 0}

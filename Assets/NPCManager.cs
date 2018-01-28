@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PresidentExtensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,11 @@ public class NPCManager : Singleton<NPCManager> {
 
     private void Awake()
     {
+        for (int i = 0; i < clothColors.Length; i++)
+        {
+            clothColors[i] = new Color(Random.value, Random.value, Random.value);
+        }
+
         maleSpritesDico.Add(PartType.Eyes, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Eyes")));
         maleSpritesDico.Add(PartType.Hair, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Hair")));
         maleSpritesDico.Add(PartType.Nose, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Male/Noses")));
@@ -64,29 +70,67 @@ public class NPCManager : Singleton<NPCManager> {
         femaleSpritesDico.Add(PartType.Beard, new List<Sprite>(Resources.LoadAll<Sprite>("Textures/Characters/Female/Beard")));
     }
 
-    public Sprite GetRandomSprite(PartType partType, Gender gender)
+    private Dictionary<PartType, List<Sprite>> GetAppropriateDictionary(Gender gender)
     {
         Dictionary<PartType, List<Sprite>> refDico = new Dictionary<PartType, List<Sprite>>();
 
-        switch(gender)
+        switch (gender)
         {
             case Gender.Male:
-                refDico = maleSpritesDico;
-                break;
+                return maleSpritesDico;
 
             case Gender.Female:
-                refDico = femaleSpritesDico;
-                break;
-
-            case Gender.Both:
-                //TODO
-                break;
-            
-            default:
-                Debug.LogWarning("Unknown gender. Wtf ?");
-                return null;
+                return femaleSpritesDico;
         }
+        return null;
+    }
 
+    public Sprite GetRandomSprite(BodyPartRandomizer part, Gender gender)
+    {
+        if(part.type == PartType.Cloth && part.relative != null)
+        {
+            Dictionary<PartType, List<Sprite>> refDico = GetAppropriateDictionary(gender);
+            List<Sprite> refList = refDico[part.type];
+
+            string relativeName = part.relative.GetSpriteRenderer().sprite.name;
+            char last = relativeName[relativeName.Length - 1];
+
+            char target = '0';
+            switch(last)
+            {
+                case '1':
+                    target = '1';
+                    break;
+
+                case '0':
+                    target = '2';
+                    break;
+
+                case '2':
+                    target = '3';
+                    break;
+            }
+
+            refList.Shuffle();
+            foreach(var s in refList)
+            {
+                if(s.name[s.name.Length - 3] == target)
+                {
+                    return s;
+                }
+            }
+
+            return null;
+        }
+        else
+        {
+            return GetRandomSprite(part.type, gender);
+        }
+    }
+
+    public Sprite GetRandomSprite(PartType partType, Gender gender)
+    {
+        Dictionary<PartType, List<Sprite>> refDico = GetAppropriateDictionary(gender);
         List<Sprite> refList = refDico[partType];
 
         if(refList.Count > 0)
@@ -107,5 +151,10 @@ public class NPCManager : Singleton<NPCManager> {
     public Color GetRandomSkinColor()
     {
         return skinColors[Random.Range(0, skinColors.Length)];
+    }
+
+    public Color GetRandomClothColor()
+    {
+        return clothColors[Random.Range(0, clothColors.Length)];
     }
 }

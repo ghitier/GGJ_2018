@@ -100,6 +100,7 @@ public class CharacterRandomizer : MonoBehaviour {
 
         Color skinColor = NPCManager.Instance.GetRandomSkinColor();
         Color hairColor = NPCManager.Instance.GetRandomHairColor();
+        Color clothColor = NPCManager.Instance.GetRandomClothColor();
 
         int partIdx = 0;
         int layerOrder = (t.parent.childCount - siblingIdx) * _parts.Count;
@@ -108,7 +109,7 @@ public class CharacterRandomizer : MonoBehaviour {
             SpriteRenderer renderer = p.GetSpriteRenderer();
             if (p.type != PartType.None)
             {
-                renderer.sprite = NPCManager.Instance.GetRandomSprite(p.type, gender);
+                renderer.sprite = NPCManager.Instance.GetRandomSprite(p, gender);
 
                 switch(p.type)
                 {
@@ -116,29 +117,33 @@ public class CharacterRandomizer : MonoBehaviour {
                         renderer.color = skinColor;
                         renderer.sortingOrder = layerOrder;
                         break;
+                    case PartType.Cloth:
+                        renderer.color = clothColor;
+                        renderer.sortingOrder = layerOrder + 1;
+                        break;
                     case PartType.Head:
                         renderer.color = skinColor;
-                        renderer.sortingOrder = layerOrder + 1;
+                        renderer.sortingOrder = layerOrder + 2;
                         break;
                     case PartType.Nose:
                         renderer.color = skinColor;
-                        renderer.sortingOrder = layerOrder + 3;
+                        renderer.sortingOrder = layerOrder + 4;
                         break;
 
                     case PartType.Hair:
                     case PartType.Beard:
                         renderer.color = hairColor;
-                        renderer.sortingOrder = layerOrder + 4;
+                        renderer.sortingOrder = layerOrder + 5;
                         break;
 
                     case PartType.Eyes:
-                        renderer.sortingOrder = layerOrder + 5;
+                        renderer.sortingOrder = layerOrder + 6;
                         break;
 
                     case PartType.MouthNormal:
                         renderer.color = skinColor;
                         mouth = p;
-                        renderer.sortingOrder = layerOrder + 2;
+                        renderer.sortingOrder = layerOrder + 3;
                         break;
                 }
             }
