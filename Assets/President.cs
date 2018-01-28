@@ -110,7 +110,7 @@ public class President : Singleton<President> {
             _source.clip = selectee;
             _source.Play();
 
-            if(Random.value >= 0.9f)
+            if(Random.value >= 0.6f)
             {
                 MakeFingerGreatAgain();
             }

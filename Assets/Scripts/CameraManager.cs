@@ -132,14 +132,26 @@ public class CameraManager : Singleton<CameraManager> {
         Cursor.visible = true;
         controlled = false;
 
-        if(TargetedCharacter() == assassin)
+        GameObject targetObject = TargetedCharacter();
+
+        if (targetObject != null)
+        {
+            CharacterRandomizer shotChar = targetObject.GetComponentInParent<CharacterRandomizer>();
+            
+            if(shotChar != null)
+            {
+                shotChar.bloodObject.SetActive(true);
+            }
+        }
+
+        if(targetObject == assassin)
         {
             FadeScreen.Instance.FadeOut("Vous avez prévenu l'assassinat de notre estimé président !", "Youpi !", delegate
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("S_Menu");
             });
         }
-        else if(TargetedCharacter() != null)
+        else if(targetObject != null)
         {
             FadeScreen.Instance.FadeOut("Vous n'avez pas trouvé la bonne personne, l'assassin s'est enfui..", "Oooh mince !", delegate
             {
